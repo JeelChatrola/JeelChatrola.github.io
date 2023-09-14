@@ -1,16 +1,14 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
-img: assets/img/12.jpg
+title: Research Grade Mobile Robot
+description: 
+img: assets/img/ezgif.com-crop.gif
 importance: 1
 category: work
-related_publications: einstein1956investigations, einstein1950meaning
+related_publications:
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+Developed hardware-software stack for a four-wheel differential drive mobile robot for algorithm testing of perception and planning stack
 
 To give your project a background in the portfolio page, just add the img tag to the front matter like so:
 

@@ -1,16 +1,14 @@
 ---
 layout: page
-title: project 3
-description: a project that redirects to another website
-img: assets/img/7.jpg
+title: Control of a UR5 Robotic Manipulator
+description: 
+img: assets/img/UR5.gif
 redirect: https://unsplash.com
 importance: 3
 category: work
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+Applied color detection algorithms to sort packges using two UR5 robotic manipulator of warehouse automation task.
 
 To give your project a background in the portfolio page, just add the img tag to the front matter like so:
 
