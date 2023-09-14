@@ -151,11 +151,11 @@ related_blog_posts:
 # -----------------------------------------------------------------------------
 
 collections:
-  # news:
-  #   defaults:
-  #     layout: post
-  #     output: true
-  #     permalink: /news/:path/
+  news:
+    defaults:
+      layout: post
+      output: true
+      permalink: /news/:path/
   projects:
     output: true
     permalink: /projects/:path/
@@ -392,14 +392,16 @@ medium_zoom:
 
 jekyll_get_json:
   - data: resume
-    json: assets/json/resume.json # it can also be an url
+    json: assets/_layouts/cv.html # it can also be an url
 jsonresume:
-  - work
-  - education
-  - publications
-  - projects
-  - certificates
-  - skills
-  - languages
-  - interests
-  - references
+  - _layouts/cv.html
+# jsonresume:
+#   - work
+#   - education
+#   - publications
+#   - projects
+#   - certificates
+#   - skills
+#   - languages
+#   - interests
+#   - references
