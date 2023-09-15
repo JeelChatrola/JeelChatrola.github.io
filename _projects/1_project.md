@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Research Grade Mobile Robot
+title: Research Grade Mobile Robot 
 description: 
 img: assets/img/ezgif.com-crop.gif
 importance: 1
