@@ -8,72 +8,77 @@ category: work
 related_publications:
 ---
 
-Developed hardware-software stack for a four-wheel differential drive mobile robot for algorithm testing of perception and planning stack
+### Introduction
+Developed hardware-software stack for a four-wheel differential drive mobile robot for algorithm testing of perception and planning stack. Main motive behind developing this robot was to make it modular in terms of mechanical structure as well sensor/electrical suit while maintaining base level safety. ( Underdevelopment ).
+<center>
+<img src="/assets/img/researchrobot.gif" height="200px" width="200px">
+</center>
+<br>
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+### Technical Specifications 
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+#### Four Wheel Drive Differential Drive 
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+1) Power Distribution board with RF and manual switching <br>
+2) Controller Board<br>
+3) Jetson Xavier<br>
+4) RF Control<br>
+5) E-stop ( On-Board and RF )<br>
+6) Max Linear Speed - 2 m/s, Angular Speed - 10 rad/s<br>
+7) Payload Capacity - Upto 50 kg<br>
+8) Operating Time - 1 Hr ( Customizable )<br>
+9) Open Source and ROS Compatible<br>
+
+### Architecture
+<center>
+<img src="/assets/img/projects/project_1/Robot_Architecture.png" height="800px">
+</center>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
+    High level architecture of the robot's electronics and sensors.
 </div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+
+### Hardware Stack
+We Developed each component of this stack keeping in mind modularity thus each component is independent and can be used seperately.<br>
+
+#### Power Distribution Board
+We Designed a custom power ditribution board that provides a basic power on/off switch along with a estop switch. It has 4 distribution channels for motor/actuators and 4 outputs to power the electronics, on board computer and other sensors. This board was designed keeping in mind modularity of the robot thus we added additional ports which can be used as and when required.
+
+<center>
+<img src="/assets/img/projects/project_1/pcb.png" height="300px">
+</center>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    Custom Power Distribution Board.
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
+#### Controller Board
+We designed a custom controller host board which works with a Teensy 4.1 and provided different ports to interface various peripherals ( CAN ports – 2, I2C ports – 2, Serial Comm. Ports – 4, SPI ports – 2 ) directly with teensy, additionally we have 4 ports ( encoder + pwm ) which are capable to control a given actuator with sensor feedback.This board was designed keeping in mind modularity of the robot thus we added additional ports which can be used as and when required.
 
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+<center>
+<img src="/assets/img/projects/project_1/controller_pcb.png" height="300px">
+</center>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+    Custom Controller Board.
 </div>
 
+### Software Stack
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+Software Stack is divided into two sections -<br> 
+1) <b> Low Level Control </b>( motor, power, rf, lights, etc.):
+   This is handled by the power distribution board and teensy 4.1. It also provides sensor feedback to ROS.
+<br>
 
-{% raw %}
-```html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-```
-{% endraw %}
+2) <b>High Level Control</b> ( Task Planning, robot movement, etc.):
+   Handled by Jetson Xavier or Other SBC, ROS runs on this machine.All highlevel controller/planners are implemented on this for performing high level task.<br>
+
+### Media
+Repository (Under Development) - https://github.com/FocasLab/focaslab_outdoor_robot.git
+<table>
+<tr>
+    <td valign="top" width="33%"><img src="/assets/img/projects/project_1/rb1.jpeg" width="250px"></td>
+    <td valign="top" width="33%"><img src="/assets/img/projects/project_1/rb4.jpeg" width="250px"></td>
+    </tr>
+    <tr>
+    <td valign="top" width="33%"><img src="/assets/img/projects/project_1/rb6.gif" width="250px"></td>
+    <td valign="top" width="33%"><img src="/assets/img/projects/project_1/rb7_1.gif" width="220px"></td>
+</tr>
+</table> 
